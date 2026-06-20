@@ -76,8 +76,8 @@ export const subscriptionPricing: Record<
   Record<number, { single: number; double: number; triple: number }>
 > = {
   10: {
-    100: { single: 100, double: 280, triple: 420 },
-    150: { single: 150, double: 340, triple: 510 },
+    100: { single: 140, double: 280, triple: 420 },
+    150: { single: 170, double: 340, triple: 510 },
     200: { single: 210, double: 420, triple: 630 },
   },
   15: {
