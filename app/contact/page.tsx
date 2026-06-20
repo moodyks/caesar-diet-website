@@ -1,10 +1,24 @@
 "use client"
 
+import { useEffect } from "react"
 import { useLanguage } from "@/components/language-context"
 import { BRAND } from "@/lib/menu-data"
+import { supabase } from "@/lib/supabase"
 
 export default function ContactPage() {
   const { isRTL } = useLanguage()
+
+  useEffect(() => {
+    async function testConnection() {
+      const { data, error } = await supabase.from("customers").select("*")
+      if (error) {
+        console.error("Supabase connection failed:", error.message)
+      } else {
+        console.log("Supabase connection successful. Data:", data)
+      }
+    }
+    testConnection()
+  }, [])
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-6 pt-16">
